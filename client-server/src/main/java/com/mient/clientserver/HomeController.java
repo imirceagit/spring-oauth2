@@ -10,15 +10,17 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HomeController {
 
-    @Autowired
-    private OAuth2RestTemplate restTemplate;
+//    @Autowired
+//    private OAuth2RestTemplate restTemplate;
+//
+//    @Value("${message.api:http://localhost:18080/message}")
+//    String messageApi;
 
-    @Value("${message.api:http://localhost:18080/message}")
-    String messageApi;
-
-    @GetMapping("/")
+    @GetMapping("/index")
     public String home(Model model) {
-        String message = restTemplate.getForObject(messageApi, String.class);
-        return message;
+//        String message = restTemplate.getForObject(messageApi, String.class);
+//        return message;
+        return "MULTA MUIE";
+
     }
 }
