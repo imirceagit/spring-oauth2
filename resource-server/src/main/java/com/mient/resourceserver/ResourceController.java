@@ -8,6 +8,6 @@ public class ResourceController {
 
     @GetMapping("/message")
     public String randomMessage() {
-        return "Multa sanatate!";
+        return "Random message";
     }
 }
