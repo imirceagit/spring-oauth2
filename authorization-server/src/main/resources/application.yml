@@ -5,8 +5,5 @@ server:
 
 security:
   oauth2:
-    client:
-      client-id: demo
-      client-secret: demo
-      scope: openid
-      authorized-grant-types: password,authorization_code
+    resource:
+      filter-order: 3

@@ -5,12 +5,14 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.security.Principal;
+
 @RestController
 @EnableResourceServer
 public class UserInfoController {
 
     @GetMapping("/userinfo")
-    public Object userinfo(Authentication authentication) {
-        return authentication;
+    public Principal userinfo(Principal principal) {
+        return principal;
     }
 }
