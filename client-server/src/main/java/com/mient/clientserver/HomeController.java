@@ -1,23 +1,33 @@
 package com.mient.clientserver;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.oauth2.client.OAuth2RestTemplate;
+import org.springframework.security.oauth2.provider.OAuth2Authentication;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
 
-@RestController
+@Controller
 public class HomeController {
 
-    @GetMapping("/")
-    @ResponseBody
-    public String helloFromBaeldung() {
-        return "Hello From Baeldung!";
+    private final String resource = "http://localhost:18080/message";
+
+    @Autowired
+    private OAuth2RestTemplate restTemplate;
+
+    @GetMapping("/public")
+    public String publicMethod(Model model) {
+        model.addAttribute("person", "Mircea");
+        return "personinfo";
     }
 
-    @GetMapping("/personInfo")
-    public ModelAndView person() {
-        ModelAndView mav = new ModelAndView("personinfo");
-        mav.addObject("person", "Mircea");
-        return mav;
+    @GetMapping("/private")
+    @ResponseBody
+    public String privateMethod(OAuth2Authentication authentication) {
+        SecurityContextHolder.getContext();
+        return "§§§§ PRIVATE MESSAGE §§§§";
     }
 }

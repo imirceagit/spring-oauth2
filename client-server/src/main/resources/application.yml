@@ -1,6 +1,5 @@
 server:
   port: 8080
-  contextPath: /
 
 # Configure the Authorization Server and User Info Resource Server details
 security:
@@ -10,5 +9,6 @@ security:
       userAuthorizationUri: http://localhost:18081/uaa/oauth/authorize
       clientId: santander
       clientSecret: santander
+      scope: santander
     resource:
-      userInfoUri: http://localhost:18081/userinfo
+        userInfoUri: http://localhost:18081/uaa/user

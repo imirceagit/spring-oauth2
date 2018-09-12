@@ -42,12 +42,4 @@ public class ResourceConfigurer extends ResourceServerConfigurerAdapter {
     public TokenStore tokenStore() {
         return new JwtTokenStore(jwtAccessTokenConverter());
     }
-
-    @Bean
-    @Primary
-    public DefaultTokenServices tokenServices() {
-        DefaultTokenServices defaultTokenServices = new DefaultTokenServices();
-        defaultTokenServices.setTokenStore(tokenStore());
-        return defaultTokenServices;
-    }
 }

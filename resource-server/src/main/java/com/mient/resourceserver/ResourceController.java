@@ -23,7 +23,7 @@ public class ResourceController {
     public String randomMessage(OAuth2Authentication authentication) {
         SecurityContextHolder.getContext();
 //        Map<String, Object> additionalInfo = tokenServices.getAccessToken(authentication).getAdditionalInformation();
-        getExtraInfo(authentication);
+//        getExtraInfo(authentication);
         return "Random message";
     }
 

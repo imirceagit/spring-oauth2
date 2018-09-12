@@ -15,4 +15,9 @@ public class UserInfoController {
     public Principal userinfo(Principal principal) {
         return principal;
     }
+
+    @GetMapping("/test")
+    public String test() {
+        return "TEST";
+    }
 }
