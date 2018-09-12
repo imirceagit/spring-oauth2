@@ -8,7 +8,7 @@ security:
     client:
       accessTokenUri: http://localhost:18081/uaa/oauth/token
       userAuthorizationUri: http://localhost:18081/uaa/oauth/authorize
-      clientId: demo
-      clientSecret: demo
+      clientId: santander
+      clientSecret: santander
     resource:
       userInfoUri: http://localhost:18081/userinfo

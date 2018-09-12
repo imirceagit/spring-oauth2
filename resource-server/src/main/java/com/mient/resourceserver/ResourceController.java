@@ -16,9 +16,6 @@ import java.util.Map;
 @RestController
 public class ResourceController {
 
-//    @Autowired
-//    private AuthorizationServerTokenServices tokenServices;
-
     @Autowired
     TokenStore tokenStore;
 

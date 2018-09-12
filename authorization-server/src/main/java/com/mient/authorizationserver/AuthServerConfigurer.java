@@ -33,11 +33,11 @@ public class AuthServerConfigurer extends AuthorizationServerConfigurerAdapter {
             throws Exception {
         clients
                 .inMemory()
-                .withClient("demo")
-                .secret("demo")
+                .withClient("santander")
+                .secret("santander")
                 .redirectUris("http://localhost:8080/")
                 .authorizedGrantTypes("authorization_code", "refresh_token", "client_credentials")
-                .scopes("openid")
+                .scopes("santander")
                 .autoApprove(true)
                 .accessTokenValiditySeconds(3000)
                 .refreshTokenValiditySeconds(18000);
@@ -45,14 +45,13 @@ public class AuthServerConfigurer extends AuthorizationServerConfigurerAdapter {
 
     @Override
     public void configure(
-            AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
+            AuthorizationServerEndpointsConfigurer endpoints) {
         TokenEnhancerChain tokenEnhancerChain = new TokenEnhancerChain();
         tokenEnhancerChain.setTokenEnhancers(
                 Arrays.asList(tokenEnhancer(), jwtAccessTokenConverter()));
 
         endpoints.tokenStore(tokenStore())
                 .tokenEnhancer(tokenEnhancerChain)
-//                .authenticationManager(authenticationManager);
         ;
     }
 

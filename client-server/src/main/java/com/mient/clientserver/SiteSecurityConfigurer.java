@@ -7,8 +7,11 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.oauth2.client.OAuth2ClientContext;
 import org.springframework.security.oauth2.client.OAuth2RestTemplate;
+import org.springframework.security.oauth2.client.filter.OAuth2ClientAuthenticationProcessingFilter;
 import org.springframework.security.oauth2.client.resource.OAuth2ProtectedResourceDetails;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
+
+import java.util.logging.Filter;
 
 @Configuration
 @EnableOAuth2Sso
@@ -35,12 +38,4 @@ public class SiteSecurityConfigurer
                         CookieCsrfTokenRepository
                                 .withHttpOnlyFalse());
     }
-
-    @Bean
-    public OAuth2RestTemplate restTemplate(
-            OAuth2ProtectedResourceDetails resource,
-            OAuth2ClientContext context) {
-        return new OAuth2RestTemplate(resource, context);
-    }
-
 }
