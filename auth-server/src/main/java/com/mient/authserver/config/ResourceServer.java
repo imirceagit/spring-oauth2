@@ -1,4 +1,4 @@
-package com.mient.authserver;
+package com.mient.authserver.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;

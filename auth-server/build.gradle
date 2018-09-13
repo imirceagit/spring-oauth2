@@ -30,11 +30,18 @@ ext {
 }
 
 dependencies {
+	compileOnly('org.projectlombok:lombok')
+
 	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile("com.fasterxml.jackson.core:jackson-core:${jacksonVersion}")
 	compile('org.springframework.cloud:spring-cloud-starter-oauth2')
+	compile('org.springframework.boot:spring-boot-starter-data-jpa')
+	compile('com.h2database:h2')
+
 	runtime('org.springframework.boot:spring-boot-devtools')
+
+	testCompile('com.h2database:h2')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 

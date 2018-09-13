@@ -29,10 +29,14 @@ ext {
 }
 
 dependencies {
+	compileOnly('org.projectlombok:lombok')
+
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
 	compile('org.springframework.cloud:spring-cloud-starter-oauth2')
+
 	runtime('org.springframework.boot:spring-boot-devtools')
+
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 
